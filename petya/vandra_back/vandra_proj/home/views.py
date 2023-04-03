@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Post
 
 
@@ -11,5 +11,7 @@ class PostListView(ListView):
     model = Post
     template_name = 'main_page.html'
 
-    # def  get_queryset(self):
-    #     return Post.objects.
+
+class ArticleDetailView(DetailView):
+    model = Post
+    template_name = 'article.html'
