@@ -1,0 +1,233 @@
+.wrapper{
+    margin: 0 auto;
+    background: #CCCCCC;
+    display: flex;
+	flex-direction: column;
+}
+.members_conteiner, .content_top_conteiner, .map_conteiner, .about_trip-conteiner, .foto_conteiner, .footer_conteiner{
+    max-width: 1220px;
+    margin: 0 auto;
+
+}
+
+/*------- CONTENT TOP --------*/
+
+.content_top{
+    position: relative;
+    height: 450px;
+    margin-bottom: 35px;
+}
+.content_top_body{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+}
+._cover{
+    position: relative;
+    padding-bottom: 400px;
+    z-index: 1;
+}
+._cover img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+.content_top_fon{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.content_top_conteiner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.content_top_body{
+    margin-top: 390px;
+    text-align: center;
+    width: 345px;
+    height: 100px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.75);
+}
+
+.content_top_body h2{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #000000;
+    margin-top: 26px;
+}
+
+/*------- MEMBERS --------*/
+.members{
+    margin-top: 50px;
+}
+.members_title{
+    margin-bottom: 40px;
+}
+.members_title img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.members_body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.member_block p{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.03em;
+    color: #000000;
+    margin-top: 10px;
+}
+
+@media (max-width: 3000px){
+    .member_block{
+        width: 20%;
+        text-align: center;
+        margin-bottom: 35px;
+    }
+    
+}
+
+@media (max-width: 1000px){
+    .member_block{
+        width: 25%;
+        text-align: center;
+        margin-bottom: 35px;
+    }
+    
+    
+}
+
+@media (max-width: 800px){
+    .member_block{
+        width: 33.3%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .member_block img{
+        height: 80%;
+        width: 60%;
+    }
+    .member_block p{
+        font-size: 20px;
+        line-height: 24px;
+        margin-top: 5px;
+    }
+}
+
+
+/* --------- MAP ----------- */
+
+.map{
+    margin-top: 15px;
+}
+.map_title{
+    margin-bottom: 40px;
+}
+.map_title img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.map_trip{
+    min-height: 400px;
+}
+
+/* --------- ABOUT TRIP ----------- */
+.about_trip{
+    margin-top: 60px;
+}
+.about_trip-title{
+    margin-bottom: 40px;
+}
+.about_trip-title img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --------- FOTO ----------- */
+
+.foto{
+    margin-top: 60px;
+}
+.foto_title{
+    margin-bottom: 40px;
+}
+.foto_title img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* ----- FOOTER ------- */
+
+.footer{
+    background: #6F6C6C;
+    width: 100%;
+    padding: 5%;
+}
+.footer_conteiner{
+    display: flex;
+}
+.footer .about_site{
+    width: 60%;
+}
+.footer .links{
+    width: 40%;
+    text-align: right;    
+}
+
+.footer .about_site p{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    color: #ffffff;
+    letter-spacing: 3px;
+    font-size: 22px;
+    line-height: 1.3em;
+}
+.footer .about_site p:first-of-type{
+    margin-bottom: 30px;
+}
+
+.footer .links p{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: 3px;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin-bottom: 5px;
+}
+.footer .links .link_member{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #000000;
+    margin-bottom: 10px;
+}
+.footer .links .link_member:last-of-type{
+    margin-bottom: -10px;
+}
+.footer .links .link_member li:first-of-type{
+    margin-bottom: 5px;
+}
+.footer .links .link_member li a{
+    color: inherit;
+}
