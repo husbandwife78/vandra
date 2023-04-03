@@ -6,9 +6,10 @@ from .models import Post
 # def home(request):
 #     return render(request, 'main_page.html')
 
+
 class PostListView(ListView):
     model = Post
-    # template_name = 'home_page.html'
+    template_name = 'main_page.html'
 
-    def  get_queryset(self):
-        return Post.objects.
+    # def  get_queryset(self):
+    #     return Post.objects.
