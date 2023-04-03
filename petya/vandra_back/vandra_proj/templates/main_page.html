@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="{% static 'home/css/normalize.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}"/>
+    <title>Вандроўкі</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header"></header>
+
+    <div class="content_top">
+        <div class="content_top_conteiner">
+            <div class="content_top_body">
+               <h2>Беспантовыя вандроўкі</h2>
+            </div>
+        </div>S
+        <div class="content_top_fon _cover">
+            <img src="{% static 'home/img/BG.png' %}" alt="cover">
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="content_conteiner">
+            <div class="content_title">
+                    <img src="{% static 'home/img/trips_title.png' %}" alt="title_cover">
+            </div>
+            <div class="content_body">
+                <div class="content_all_posts">
+
+                    {% for post in object_list %}
+
+                    <div
+                            {% if post.post_size == 0%}
+                                class="content_post small-width">
+                            {% elif post.post_size == 1%}
+                                class="content_post medium-width">
+                            {% endif %}
+
+                        <a href="">
+                            <div class="post_img">
+                                <img src="{{ post.image.url }}">
+                            </div>
+                            <div class="post_text">
+                                <h2 class="post_title">
+                                    <span>{{post.title}}</span>
+                                </h2>
+                                <p> {{post.description}} </p>
+                            </div>
+                        </a>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="map">
+        <div class="map_conteiner">
+            <div class="map_body">
+                <div class="map_title">
+                    <img src="{% static 'home/img/map_title.png' %}" alt="map_cover">
+                </div>
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="about_site">
+            <p>Праект <b>Беспантавыя вандроўкі</b> створаны для таго, каб увекавечыць памяць аб цудоўна праведзеным часе ў коле блізкіх людзей.</p>
+            <p>Выказваем словы падзякі кожнаму піражку, які тут згадваецца.</p>
+        </div>
+        <div class="links">
+            <p>Аўтары і ідэйныя натхняльнікі праекту</p>
+            <div class="link_milvary link_member">
+                <p>Мілвары Аліева</p>
+                <ul>
+                    <li><a href="https://t.me/milvari">tg: @milvari</a> </li>
+                    <li><a href="https://www.instagram.com/milvari_al/">inst: milvari_al</a></li>
+                </ul>
+
+            </div>
+            <div class="link_piotr link_member">
+                <p>Пётр Сілкоў</p>
+                <ul>
+                    <li><a href="https://t.me/silbetelgeuse">tg: @silbetelgeuse</a></li>
+                    <li><a href="https://www.instagram.com/piotrpetya/">inst: piotrpetya</a></li>
+                </ul>
+
+            </div>
+            <div class="link_nasta link_member">
+                <p>Настасся Фесун</p>
+                <ul>
+                    <li><a href="https://t.me/nasta_fesun">tg: @nasta_fesun</a></li>
+                    <li><a href="https://www.instagram.com/nastya.fesun/">inst: nastya.fesun</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    function initMap(){
+        var opt = {
+            center: {lat: 53.89467520074826, lng: 27.558341980728567},
+            zoom: 4
+        }
+        var map = new google.maps.Map(document.getElementById('map'), opt)
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcuuuV4KWm9JqTCJnJ1fH5XFKjz5PX9oQ&callback=initMap" async defer></script>
+</body>
+</html>
