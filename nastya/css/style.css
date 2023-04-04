@@ -80,10 +80,11 @@
     object-fit: cover;
 }
 
-.content_conteiner .content_body .content_all_post{
+.content_conteiner .content_body .content_all_posts{
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 
@@ -95,7 +96,6 @@
         width: 25%;
     }
     .content_conteiner .content_body .content_all_posts .content_post {
-        display: inline-block;
         vertical-align: top;
         margin-bottom: 40px;
         position: relative;
