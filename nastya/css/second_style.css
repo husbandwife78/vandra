@@ -227,12 +227,36 @@
 .trip_block-text p{
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 400;
-    font-size: 30px;
-    line-height: 35px;
+    font-size: 25px;
+    line-height: 30px;
     text-align: justify;
     letter-spacing: 0.03em;
     color: #000000;
 }
+.trip-date{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.trip-date img{
+    width: 50px;
+}
+.trip-date_text{
+    margin-left: 25px;
+}
+.trip-date_text p{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: justify;
+    letter-spacing: 0.03em;
+    color: #000000;
+
+}
+
 
 @media (max-width: 1250px){
     .trip_block{
@@ -252,7 +276,53 @@
         width: 55%;
     }   
 }
+@media (max-width: 960px){
+    .trip_block{
+        display: flex;
+        flex-wrap: wrap;
 
+    }
+    .horizontal_foto_block, .vertical_foto_block{
+        width: 100%;
+    }
+    .horizontal_foto_block img{
+        width: 50%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+    }
+    .horizontal_foto_block .trip_block-text{
+        width: 70%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .line_post img{
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .vertical_foto_block img{
+        width: 35%;
+    }
+    .vertical_foto_block .trip_block-text{
+        width: 55%;
+    }   
+    .trip_block .trip_block-text p{
+        font-size: 25px;
+        line-height: 30px;    
+    }
+    .trip_block .trip_block-text p{
+        font-size: 20px;
+        line-height: 25px;    
+    }
+}
+@media  (max-width: 650px){
+    .wrapper{
+        width: 700px;
+        overflow: auto;
+    }
+    
+}
 
 /* ----- FOOTER ------- */
 
@@ -275,7 +345,7 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 500;
     color: #ffffff;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     font-size: 22px;
     line-height: 1.3em;
 }
@@ -286,7 +356,7 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 300;
     color: #ffffff;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     font-size: 18px;
     line-height: 1.3em;
     margin-bottom: 5px;
