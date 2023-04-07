@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<body>
+<div class="wrapper">
+    <header class="header"></header>
+
+    <div class="content_top">
+        <div class="content_top_conteiner">
+            <div class="content_top_body">
+               <h2>Беспантовыя вандроўкі</h2>
+            </div>
+        </div>
+        <div class="content_top_fon _cover">
+            <img src="{% static 'home/img/BG.png' %}" alt="cover">
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="content_conteiner">
+            <div class="content_title">
+                    <img src="{% static 'home/img/trips_title.png' %}" alt="title_cover">
+            </div>
+            <div class="content_body">
+                <div class="content_all_posts">
+
+                    {% for post in object_list %}
+
+                    <div
+                            {% if post.post_size == 0%}
+                                class="content_post small-width">
+                            {% elif post.post_size == 1%}
+                                class="content_post medium-width">
+                            {% endif %}
+
+                        <a href="{% url 'article-detail' post.slug %}">
+                            <div class="post_img">
+                                <img src="{{ post.main_page_img.url }}">
+                            </div>
+                            <div class="post_text">
+                                <h2 class="post_title">
+                                    <span>{{post.title}}</span>
+                                </h2>
+                                <p> {{post.description}} </p>
+                            </div>
+                        </a>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="map">
+        <div class="map_conteiner">
+            <div class="map_body">
+                <div class="map_title">
+                    <img src="{% static 'home/img/map_title.png' %}" alt="map_cover">
+                </div>
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    function initMap(){
+        var opt = {
+            center: {lat: 53.89467520074826, lng: 27.558341980728567},
+            zoom: 6
+        }
+        var map = new google.maps.Map(document.getElementById('map'), opt)
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcuuuV4KWm9JqTCJnJ1fH5XFKjz5PX9oQ&callback=initMap" async defer></script>
+
+
+{% endblock %}
+
+</body>
+</html>
