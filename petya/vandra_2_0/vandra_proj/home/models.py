@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+# from django.contrib.gis.db import models as gis_models
 from django.utils.text import slugify
 from unidecode import unidecode
 
@@ -25,6 +26,7 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     travelers = models.ForeignKey(Traveler,
                                   on_delete=models.SET_NULL, null=True, blank=True)
+    # location = gis_models.PointField(srid=4326, null=True, blank=True)
 
     class Meta:
         ordering = ['-updated']
