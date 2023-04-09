@@ -17,15 +17,18 @@ class Traveler(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
+    date = models.DateField(null=True, blank=True)
     description = models.CharField(max_length=150)
     main_page_img = models.ImageField(upload_to='home/post_images/main_page_images',
                                       null=True, blank=True)
 
+    post_cover_img = models.ImageField(upload_to='home/post_images/post_covers',
+                                       null=True, blank=True)
+
     post_size = models.IntegerField(default=0)
     slug = models.SlugField(max_length=50, null=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
-    travelers = models.ForeignKey(Traveler,
-                                  on_delete=models.SET_NULL, null=True, blank=True)
+    travelers = models.ManyToManyField(Traveler, null=True, blank=True)
     location = models.PointField(srid=4326, null=True, blank=True)
 
     class Meta:
@@ -38,3 +41,16 @@ class Post(models.Model):
         if not self.slug:
             self.slug = slugify(unidecode(self.title))
         return super().save(*args, **kwargs)
+
+
+class PostArticle(models.Model):
+    title = models.CharField(max_length=70)
+    text_block = models.TextField()
+    image = models.ImageField(upload_to='home/article_images/', null=True, blank=True)
+    post_name = models.ForeignKey(Post,
+                                  on_delete=models.SET_NULL,
+                                  null=True, blank=True,
+                                  related_name='articles')
+
+    def __str__(self):
+        return f'{str(self.title)} | {str(self.post_name)}'

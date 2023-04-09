@@ -14,4 +14,4 @@ class PostListView(ListView):
 
 class ArticleDetailView(DetailView):
     model = Post
-    template_name = 'article.html'
+    template_name = 'second_page.html'

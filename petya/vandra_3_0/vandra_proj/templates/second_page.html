@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'home/css/second_style.css' %}"/>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+
+     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header_conteiner">
+                <nav>
+                    <li><a href="{% url 'home' %}">ДАДОМУ</a></li>
+                    <li><a href="">СЯБРЫ</a></li>
+                </nav>
+            </div>
+        </header>
+
+        <div class="content_top">
+            <div class="content_top_conteiner">
+                <div class="content_top_body">
+                   <h2>{{post.title}}</h2>
+                </div>
+            </div>
+            <div class="content_top_fon _cover">
+                <img src="{{post.post_cover_img.url}}" alt="cover">
+            </div>
+        </div>
+            
+        <div class="members">
+            <div class="members_conteiner">
+                <div class="members_title">
+                    <img src="{% static 'home/img/members_title.png' %}" alt="member_title">
+                </div>
+                <div class="members_body">
+
+                    {% for member in post.travelers.all %}
+                    <div class="member_block">
+                        <a href="">
+                            <img src="{{ member.avatar.url }}" alt="nasta_member">
+                            <p>{{member.first_name}}</p>
+                        </a>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+    <div class="map_trip">
+        <div class="map_conteiner">
+            <div class="map_title">
+                    <img src="{% static 'home/img/map_title_2.png' %}" alt="map_cover">
+                </div>
+            <div id="map_trip"></div>
+        </div>
+    </div>
+
+        <div class="about_trip">
+            <div class="about_trip-conteiner">
+                <div class="about_trip-title">
+                    <img src="{% static 'home/img/about__trip_title.png' %}" alt="about_trip-cover">
+                </div>
+                <div class="about_trip-body">
+                    <div class="trip-date">
+                        <img src="{% static 'home/img/calendar.png' %}" alt="calendar">
+                        <div class="trip-date_text">
+                            <p>{{ post.date }}</p>
+                        </div>
+                    </div>
+
+                    {% for article in post.articles.all %}
+
+                    <div class="trip_block horizontal_foto_block">
+                        <div class="trip_block-text">
+                            <p>{{ article.text_block }}</p>
+                        </div>
+                        <img src="{{article.image.url}}" alt="vitebsk">
+                    </div>
+                    <div class="line_post">
+                        <img src="{% static 'home/img/line_post.png' %}" alt="line">
+                    </div>
+
+                    {% endfor %}
+
+
+
+
+<!--                    <div class="trip_block vertical_foto_block">-->
+<!--                        <img src="img/vitebsk_post_3.jpg">-->
+<!--                        <div class="trip_block-text">-->
+<!--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque dui lacus, in ultricies sem condimentum non. Quisque odio tortor, placerat non hendrerit a, dapibus vitae risus. In dapibus lacus enim, ac sodales ligula scelerisque malesuada. Integer pretium pretium erat vitae tincidunt. Nulla molestie sapien a feugiat semper. Suspendisse id enim vitae nunc cursus finibus in id ipsum. </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="line_post">-->
+<!--                        <img src="img/line_post.png" alt="line">-->
+<!--                    </div>-->
+
+<!--                    <div class="trip_block vertical_foto_block">-->
+<!--                        <div class="trip_block-text">-->
+<!--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque dui lacus, in ultricies sem condimentum non. Quisque odio tortor, placerat non hendrerit a, dapibus vitae risus. In dapibus lacus enim, ac sodales ligula scelerisque malesuada. Integer pretium pretium erat vitae tincidunt. Nulla molestie sapien a feugiat semper. Suspendisse id enim vitae nunc cursus finibus in id ipsum. </p>-->
+<!--                        </div>-->
+<!--                        <img src="img/vitebsk_post_3.jpg">-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+
+    var map = L.map('map_trip').setView([53.8946, 27.5583], 6);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+</script>
+
+
+</body>
+
+{% endblock %}
+</html>

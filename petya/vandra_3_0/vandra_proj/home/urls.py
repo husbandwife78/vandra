@@ -6,5 +6,5 @@ from home.views import PostListView, ArticleDetailView
 urlpatterns = [
     # path('', views.home, name='home')
     path('', PostListView.as_view(), name='home'),
-    path('article/<slug:slug>', ArticleDetailView.as_view(), name='article-detail')
+    path('articles/<slug:slug>', ArticleDetailView.as_view(), name='article-detail')
 ]

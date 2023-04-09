@@ -6,8 +6,17 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<head>
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}"/>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+
+     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+</head>
 
 <body>
 <div class="wrapper">
@@ -65,38 +74,21 @@
         <div class="map_conteiner">
             <div class="map_body">
                 <div class="map_title">
-                    <img src="{% static 'home/img/map_title.png' %}" alt="map_cover">
+                    <img src="{% static 'home/img/map_title_2.png' %}" alt="map_cover">
                 </div>
                 <div id="map"></div>
             </div>
         </div>
     </div>
 
-
-
-<script>
-
-    var map = L.map('map').setView([53.8946, 27.5583], 6);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 6);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-</script>
-
-
-<!--<script>-->
-<!--    function initMap(){-->
-<!--        var opt = {-->
-<!--            center: {lat: 53.89467520074826, lng: 27.558341980728567},-->
-<!--            zoom: 6-->
-<!--        }-->
-<!--        var map = new google.maps.Map(document.getElementById('map'), opt)-->
-<!--    }-->
-<!--</script>-->
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcuuuV4KWm9JqTCJnJ1fH5XFKjz5PX9oQ&callback=initMap" async defer></script>-->
-
+    </script>
 
 {% endblock %}
 
