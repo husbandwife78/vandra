@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -35,7 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.gis',
     'home',
     'django_cleanup.apps.CleanupConfig',
 ]
@@ -73,14 +73,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-GDAL_LIBRARY_PATH = r'D:\good_stuff\back\linux_refresh\vandra\petya\vandra_3_0\myenv\Lib\site-packages\osgeo\gdal304.dll'
-GEOS_LIBRARY_PATH = r'C:\Program Files\PostgreSQL\15\bin\libgeos_c.dll'
+# GDAL_LIBRARY_PATH = r'D:\good_stuff\back\linux_refresh\vandra\petya\vandra_3_0\myenv\Lib\site-packages\osgeo\gdal304.dll'
+# GEOS_LIBRARY_PATH = r'D:\good_stuff\back\linux_refresh\vandra\petya\vandra_3_0\myenv\Lib\site-packages\osgeo\geos_c.dll'
 
 # DATE_FORMAT = "D M Y"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'vandra_db',
         'USER': 'vandrounik',
         'PASSWORD': '1878',

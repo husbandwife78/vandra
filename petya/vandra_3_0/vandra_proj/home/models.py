@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
-# from django.db import models
-from django.contrib.gis.db import models
+from django.db import models
 from django.utils.text import slugify
 from unidecode import unidecode
 
@@ -28,8 +27,9 @@ class Post(models.Model):
     post_size = models.IntegerField(default=0)
     slug = models.SlugField(max_length=50, null=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
-    travelers = models.ManyToManyField(Traveler, null=True, blank=True)
-    location = models.PointField(srid=4326, null=True, blank=True)
+    travelers = models.ManyToManyField(Traveler)
+    postLatitude = models.FloatField(null=True, blank=True)
+    postLongitude = models.FloatField(null=True, blank=True)
 
     class Meta:
         ordering = ['-updated']
@@ -51,6 +51,20 @@ class PostArticle(models.Model):
                                   on_delete=models.SET_NULL,
                                   null=True, blank=True,
                                   related_name='articles')
+
+    def __str__(self):
+        return f'{str(self.title)} | {str(self.post_name)}'
+
+
+class PostPoint(models.Model):
+    name = models.CharField(max_length=70)
+    longitude = models.FloatField()
+    latitude = models.FloatField()
+    image = models.ImageField(upload_to='home/point_images/', null=True, blank=True)
+    post_name = models.ForeignKey(Post,
+                                  on_delete=models.SET_NULL,
+                                  null=True, blank=True,
+                                  related_name='points')
 
     def __str__(self):
         return f'{str(self.title)} | {str(self.post_name)}'
