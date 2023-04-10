@@ -23,11 +23,12 @@ class PostListView(ListView):
     model = Post
     template_name = 'main_page.html'
 
+    # coordinates = list(Post.objects.values('postLatitude', 'postLongitude'))
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['post_coordinates'] = serializers.serialize('json',
-                                                            Post.objects.all(),
-                                                            fields=['postLatitude', 'postLongitude'])
+        coordinates = list(Post.objects.values('slug', 'postLatitude', 'postLongitude'))
+        context['post_coordinates'] = coordinates
         # print(context['post_coordinates'])
         return context
 
