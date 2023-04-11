@@ -122,16 +122,9 @@
 
     </div>
 
-<script>
 
-    var map = L.map('map_trip').setView([53.8946, 27.5583], 6);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-</script>
+{{ post_points|json_script:"post_points_json" }}
+<script src="{% static 'home/js/second_page_map.js' %}"></script>
 
 
 </body>

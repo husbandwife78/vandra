@@ -67,4 +67,4 @@ class PostPoint(models.Model):
                                   related_name='points')
 
     def __str__(self):
-        return f'{str(self.title)} | {str(self.post_name)}'
+        return f'{str(self.name)} | {str(self.post_name)}'
