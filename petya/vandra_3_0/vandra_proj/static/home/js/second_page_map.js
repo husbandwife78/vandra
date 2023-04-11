@@ -1,5 +1,9 @@
+let zoomLatitude = JSON.parse(document.getElementById('zoomLat').textContent)
+let zoomLongitude = JSON.parse(document.getElementById('zoomLong').textContent)
 
-var map = L.map('map_trip').setView([53.8946, 27.5583], 6);
+console.log(zoomLat)
+
+var map = L.map('map_trip').setView([zoomLatitude, zoomLongitude], 12);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
              maxZoom: 19,
              attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'

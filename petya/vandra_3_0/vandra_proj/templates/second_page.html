@@ -124,6 +124,11 @@
 
 
 {{ post_points|json_script:"post_points_json" }}
+
+{{ post.postLatitude|json_script:"zoomLat" }}
+{{ post.postLongitude|json_script:"zoomLong" }}
+
+
 <script src="{% static 'home/js/second_page_map.js' %}"></script>
 
 

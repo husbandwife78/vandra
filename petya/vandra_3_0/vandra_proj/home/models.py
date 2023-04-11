@@ -68,3 +68,4 @@ class PostPoint(models.Model):
 
     def __str__(self):
         return f'{str(self.name)} | {str(self.post_name)}'
+
