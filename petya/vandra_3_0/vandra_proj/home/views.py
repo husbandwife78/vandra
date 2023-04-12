@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from django.views.generic import ListView, DetailView
 
-from .models import Post, PostPoint
+from .models import Post, PostPoint, Traveler
 
 
 class PostListView(ListView):
@@ -24,7 +24,18 @@ class ArticleDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # zoom_coordinates = list(Post.objects.values('slug', 'postLatitude', 'postLongitude'))
-        post_points_info = list(PostPoint.objects.values('id', 'longitude', 'latitude'))
+        post_points_info = list(PostPoint.objects.values())
         # post_points_info = post_points_info.extend(post_points_info)
         context['post_points'] = post_points_info
         return context
+
+
+class FriendsListView(ListView):
+    model = Traveler
+    template_name = 'friends.html'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     coordinates = list(Post.objects.values('slug', 'postLatitude', 'postLongitude'))
+    #     context['post_coordinates'] = coordinates
+    #     return context

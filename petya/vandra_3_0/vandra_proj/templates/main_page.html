@@ -44,9 +44,9 @@
                     {% for post in object_list %}
 
                     <div
-                            {% if post.post_size == 0%}
+                            {% if post.post_size == 'Common' %}
                                 class="content_post small-width">
-                            {% elif post.post_size == 1%}
+                            {% elif post.post_size == 'Big' %}
                                 class="content_post medium-width">
                             {% endif %}
 

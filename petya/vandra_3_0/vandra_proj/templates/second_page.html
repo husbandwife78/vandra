@@ -8,7 +8,7 @@
 
 <head>
     <link rel="stylesheet" href="{% static 'home/css/second_style.css' %}"/>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
      crossorigin=""/>
 
@@ -25,7 +25,7 @@
             <div class="header_conteiner">
                 <nav>
                     <li><a href="{% url 'home' %}">ДАДОМУ</a></li>
-                    <li><a href="">СЯБРЫ</a></li>
+                    <li><a href="{% url 'friends' %}">СЯБРЫ</a></li>
                 </nav>
             </div>
         </header>
@@ -85,7 +85,14 @@
 
                     {% for article in post.articles.all %}
 
-                    <div class="trip_block horizontal_foto_block">
+                    <div
+
+                        {% if article.articleRatio == 'Horizontal' %}
+                            class="trip_block horizontal_foto_block">
+                        {% elif article.articleRatio == 'Vertical' %}
+                            class="trip_block vertical_foto_block">
+                        {% endif %}
+
                         <div class="trip_block-text">
                             <p>{{ article.text_block }}</p>
                         </div>
@@ -97,39 +104,21 @@
 
                     {% endfor %}
 
-
-
-
-<!--                    <div class="trip_block vertical_foto_block">-->
-<!--                        <img src="img/vitebsk_post_3.jpg">-->
-<!--                        <div class="trip_block-text">-->
-<!--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque dui lacus, in ultricies sem condimentum non. Quisque odio tortor, placerat non hendrerit a, dapibus vitae risus. In dapibus lacus enim, ac sodales ligula scelerisque malesuada. Integer pretium pretium erat vitae tincidunt. Nulla molestie sapien a feugiat semper. Suspendisse id enim vitae nunc cursus finibus in id ipsum. </p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="line_post">-->
-<!--                        <img src="img/line_post.png" alt="line">-->
-<!--                    </div>-->
-
-<!--                    <div class="trip_block vertical_foto_block">-->
-<!--                        <div class="trip_block-text">-->
-<!--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque dui lacus, in ultricies sem condimentum non. Quisque odio tortor, placerat non hendrerit a, dapibus vitae risus. In dapibus lacus enim, ac sodales ligula scelerisque malesuada. Integer pretium pretium erat vitae tincidunt. Nulla molestie sapien a feugiat semper. Suspendisse id enim vitae nunc cursus finibus in id ipsum. </p>-->
-<!--                        </div>-->
-<!--                        <img src="img/vitebsk_post_3.jpg">-->
-<!--                    </div>-->
                 </div>
             </div>
         </div>
 
     </div>
 
+{{ post.postLatitude|json_script:"zoomLat" }}
+{{ post.postLongitude|json_script:"zoomLong" }}
+<!--{{ post.slug|json_script:"postSlug"}}-->
 
 {{ post_points|json_script:"post_points_json" }}
 
-{{ post.postLatitude|json_script:"zoomLat" }}
-{{ post.postLongitude|json_script:"zoomLong" }}
 
 
-<script src="{% static 'home/js/second_page_map.js' %}"></script>
+<script src="{% static 'home/js/second_page_js.js' %}"></script>
 
 
 </body>

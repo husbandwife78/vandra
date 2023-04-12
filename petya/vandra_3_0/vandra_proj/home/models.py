@@ -15,6 +15,11 @@ class Traveler(models.Model):
 
 
 class Post(models.Model):
+    POST_SIZE = (
+        ('Common', 'Common'),
+        ('Big', 'Big'),
+    )
+
     title = models.CharField(max_length=100)
     date = models.DateField(null=True, blank=True)
     description = models.CharField(max_length=150)
@@ -24,7 +29,7 @@ class Post(models.Model):
     post_cover_img = models.ImageField(upload_to='home/post_images/post_covers',
                                        null=True, blank=True)
 
-    post_size = models.IntegerField(default=0)
+    post_size = models.CharField(max_length=15, choices=POST_SIZE, default='Common')
     slug = models.SlugField(max_length=50, null=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
     travelers = models.ManyToManyField(Traveler)
@@ -44,6 +49,16 @@ class Post(models.Model):
 
 
 class PostArticle(models.Model):
+    ARTICLE_RATIO = (
+        ('Horizontal', 'Horizontal'),
+        ('Vertical', 'Vertical'),
+    )
+
+    IMAGE_SIDE = (
+        ('Left', 'Left'),
+        ('Right', 'Right'),
+    )
+
     title = models.CharField(max_length=70)
     text_block = models.TextField()
     image = models.ImageField(upload_to='home/article_images/', null=True, blank=True)
@@ -52,14 +67,17 @@ class PostArticle(models.Model):
                                   null=True, blank=True,
                                   related_name='articles')
 
+    articleRatio = models.CharField(choices=ARTICLE_RATIO, default='Horizontal', null=True, blank=True)
+    imageSide = models.CharField(choices=IMAGE_SIDE, default='Left', null=True, blank=True)
+
     def __str__(self):
         return f'{str(self.title)} | {str(self.post_name)}'
 
 
 class PostPoint(models.Model):
     name = models.CharField(max_length=70)
-    longitude = models.FloatField()
     latitude = models.FloatField()
+    longitude = models.FloatField()
     image = models.ImageField(upload_to='home/point_images/', null=True, blank=True)
     post_name = models.ForeignKey(Post,
                                   on_delete=models.SET_NULL,
@@ -68,4 +86,3 @@ class PostPoint(models.Model):
 
     def __str__(self):
         return f'{str(self.name)} | {str(self.post_name)}'
-

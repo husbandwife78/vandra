@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'home/css/second_style.css' %}"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+    {% for member in object_list %}
+        <div class="member_block">
+            <a href="">
+                <img src="{{ member.avatar.url }}" alt="nasta_member">
+                <p>{{member.first_name}}</p>
+            </a>
+        </div>
+    {% endfor %}
+
+    </div>
+
+
+</body>
+
+{% endblock %}
