@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}"/>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+
+     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+</head>
+
+<body>
+<div class="wrapper">
+    <header class="header"></header>
+
+    <div class="content_top">
+        <div class="content_top_conteiner">
+            <div class="content_top_body">
+               <h2>Беспантовыя вандроўкі</h2>
+            </div>
+        </div>
+        <div class="content_top_fon _cover">
+            <img src="{% static 'home/img/BG.png' %}" alt="cover">
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="content_conteiner">
+            <div class="content_title">
+                    <img src="{% static 'home/img/trips_title.png' %}" alt="title_cover">
+            </div>
+            <div class="content_body">
+                <div class="content_all_posts">
+
+                    {% for post in object_list %}
+
+                    <div
+                            {% if post.post_size == 'Common' %}
+                                class="content_post small-width">
+                            {% elif post.post_size == 'Big' %}
+                                class="content_post medium-width">
+                            {% endif %}
+
+                        <a href="{% url 'article-detail' post.slug %}">
+                            <div class="post_img">
+                                <img src="{{ post.main_page_img.url }}">
+                            </div>
+                            <div class="post_text">
+                                <h2 class="post_title">
+                                    <span>{{post.title}}</span>
+                                </h2>
+                                <p> {{post.description}} </p>
+                            </div>
+                        </a>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="map">
+        <div class="map_conteiner">
+            <div class="map_body">
+                <div class="map_title">
+                    <img src="{% static 'home/img/map_title_2.png' %}" alt="map_cover">
+                </div>
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+
+
+{{ post_coordinates|json_script:"post_coordinates_json" }}
+<script src="{% static 'home/js/main_map1.js' %}"></script>
+
+
+{% endblock %}
+
+</body>
+</html>

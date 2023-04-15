@@ -9,6 +9,7 @@ class Traveler(models.Model):
     last_name = models.CharField(max_length=255, null=True, blank=True)
     avatar = models.ImageField(upload_to='home/travelers_avatars',
                                null=True, blank=True)
+    instagram = models.CharField(default='https://www.instagram.com/piotrpetya/', null=True, blank=True)
 
     def __str__(self):
         return self.first_name
@@ -16,8 +17,8 @@ class Traveler(models.Model):
 
 class Post(models.Model):
     POST_SIZE = (
-        ('Common', 'Common'),
-        ('Big', 'Big'),
+        ("content_post small-width", "Common"),
+        ("content_post medium-width", "Big"),
     )
 
     title = models.CharField(max_length=100)
@@ -29,7 +30,7 @@ class Post(models.Model):
     post_cover_img = models.ImageField(upload_to='home/post_images/post_covers',
                                        null=True, blank=True)
 
-    post_size = models.CharField(max_length=15, choices=POST_SIZE, default='Common')
+    post_size = models.CharField(max_length=50, choices=POST_SIZE, default='Common')
     slug = models.SlugField(max_length=50, null=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
     travelers = models.ManyToManyField(Traveler)
@@ -43,15 +44,19 @@ class Post(models.Model):
         return str(self.title)
 
     def save(self, *args, **kwargs):
+        # post_size_dict = {'Common': "content_post small-width",
+        #                   'Big': "content_post medium-width"}
         if not self.slug:
             self.slug = slugify(unidecode(self.title))
+
+        # self.post_size = post_size_dict[self.post_size]
         return super().save(*args, **kwargs)
 
 
 class PostArticle(models.Model):
     ARTICLE_RATIO = (
-        ('Horizontal', 'Horizontal'),
-        ('Vertical', 'Vertical'),
+        ("trip_block horizontal_foto_block", 'Horizontal'),
+        ("trip_block vertical_foto_block", 'Vertical'),
     )
 
     IMAGE_SIDE = (

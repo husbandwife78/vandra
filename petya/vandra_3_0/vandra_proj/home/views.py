@@ -24,7 +24,9 @@ class ArticleDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # zoom_coordinates = list(Post.objects.values('slug', 'postLatitude', 'postLongitude'))
-        post_points_info = list(PostPoint.objects.values())
+        post_points_info = list(PostPoint.objects.values('name', 'latitude',
+                                                         'longitude', 'image',
+                                                         'post_name'))
         # post_points_info = post_points_info.extend(post_points_info)
         context['post_points'] = post_points_info
         return context

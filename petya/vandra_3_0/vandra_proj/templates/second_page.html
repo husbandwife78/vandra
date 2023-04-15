@@ -50,7 +50,7 @@
 
                     {% for member in post.travelers.all %}
                     <div class="member_block">
-                        <a href="">
+                        <a href="{{member.instagram}}">
                             <img src="{{ member.avatar.url }}" alt="nasta_member">
                             <p>{{member.first_name}}</p>
                         </a>
@@ -85,13 +85,7 @@
 
                     {% for article in post.articles.all %}
 
-                    <div
-
-                        {% if article.articleRatio == 'Horizontal' %}
-                            class="trip_block horizontal_foto_block">
-                        {% elif article.articleRatio == 'Vertical' %}
-                            class="trip_block vertical_foto_block">
-                        {% endif %}
+                    <div class="{{article.articleRatio}}">
 
                         <div class="trip_block-text">
                             <p>{{ article.text_block }}</p>
@@ -101,6 +95,8 @@
                     <div class="line_post">
                         <img src="{% static 'home/img/line_post.png' %}" alt="line">
                     </div>
+
+
 
                     {% endfor %}
 
@@ -118,8 +114,7 @@
 
 
 
-<script src="{% static 'home/js/second_page_js.js' %}"></script>
-
+<script src="{% static 'home/js/second_page_js1.js' %}"></script>
 
 </body>
 
