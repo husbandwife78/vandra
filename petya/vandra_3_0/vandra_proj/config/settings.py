@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -73,19 +72,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# GDAL_LIBRARY_PATH = r'D:\good_stuff\back\linux_refresh\vandra\petya\vandra_3_0\myenv\Lib\site-packages\osgeo\gdal304.dll'
-# GEOS_LIBRARY_PATH = r'D:\good_stuff\back\linux_refresh\vandra\petya\vandra_3_0\myenv\Lib\site-packages\osgeo\geos_c.dll'
-
-# DATE_FORMAT = "D M Y"
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'vandra_db',
+#         'USER': 'vandrounik',
+#         'PASSWORD': '1878',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'vandra_db',
-        'USER': 'vandrounik',
-        'PASSWORD': '1878',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
@@ -127,6 +132,12 @@ STATICFILES_DIRS = [STATIC_DIR]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# SECRET_KEY = os.environ.get("SECRET_KEY")
+#
+# DEBUG = int(os.environ.get("DEBUG", default=0))
+#
+# ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
