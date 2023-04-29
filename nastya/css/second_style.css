@@ -244,6 +244,10 @@
     letter-spacing: 0.03em;
     color: #000000;
 }
+.trip_block-text p:last-of-type{
+    margin-top: 40px;
+    text-align: right;
+}
 .trip-date{
     display: flex;
     flex-direction: row;
