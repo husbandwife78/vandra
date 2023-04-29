@@ -247,3 +247,47 @@
     width: 100%;
 }
 
+
+/* ------ !FOR FRIENDS_PAGE! -------- */
+.content_text{
+    display: block;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+.content_text h3{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1.21em;
+    text-align: center;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+}
+.content_text p{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+    line-height: 1.21em;
+    text-align: center;
+    line-height: 1.3em;
+}
+.content_foto{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.content_foto .horizontal_img{
+    width: 60%;
+    height: 100%;
+}
+.content_foto .square_foto{
+    width: 47%;
+}
+.content_foto .vertical_foto{
+    height: 480px;
+}
+.content_foto img{
+    margin-bottom: 20px;
+}

@@ -34,7 +34,7 @@ class ArticleDetailView(DetailView):
 
 class FriendsListView(ListView):
     model = Traveler
-    template_name = 'friends.html'
+    template_name = 'friends_page.html'
 
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)

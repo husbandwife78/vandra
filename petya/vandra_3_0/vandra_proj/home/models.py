@@ -22,7 +22,7 @@ class Post(models.Model):
     )
 
     title = models.CharField(max_length=100)
-    date = models.DateField(null=True, blank=True)
+    date = models.CharField(null=True, blank=True)
     description = models.CharField(max_length=150)
     main_page_img = models.ImageField(upload_to='home/post_images/main_page_images',
                                       null=True, blank=True)
@@ -44,12 +44,8 @@ class Post(models.Model):
         return str(self.title)
 
     def save(self, *args, **kwargs):
-        # post_size_dict = {'Common': "content_post small-width",
-        #                   'Big': "content_post medium-width"}
         if not self.slug:
             self.slug = slugify(unidecode(self.title))
-
-        # self.post_size = post_size_dict[self.post_size]
         return super().save(*args, **kwargs)
 
 
@@ -59,10 +55,10 @@ class PostArticle(models.Model):
         ("trip_block vertical_foto_block", 'Vertical'),
     )
 
-    IMAGE_SIDE = (
-        ('Left', 'Left'),
-        ('Right', 'Right'),
-    )
+    # IMAGE_SIDE = (
+    #     ('Left', 'Left'),
+    #     ('Right', 'Right'),
+    # )
 
     title = models.CharField(max_length=70)
     text_block = models.TextField()
@@ -73,7 +69,8 @@ class PostArticle(models.Model):
                                   related_name='articles')
 
     articleRatio = models.CharField(choices=ARTICLE_RATIO, default='Horizontal', null=True, blank=True)
-    imageSide = models.CharField(choices=IMAGE_SIDE, default='Left', null=True, blank=True)
+
+    # imageSide = models.CharField(choices=IMAGE_SIDE, default='Left', null=True, blank=True)
 
     def __str__(self):
         return f'{str(self.title)} | {str(self.post_name)}'

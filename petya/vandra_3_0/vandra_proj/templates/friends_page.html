@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}"/>
+    <title>Сябры</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="content_top">
+            <div class="content_top_conteiner">
+                <div class="content_top_body">
+                   <h2>Беспантовыя вандроўкі</h2>
+                </div>
+            </div>
+            <div class="content_top_fon _cover">
+                <img src="{% static 'home/img/BG.png' %}" alt="cover">
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content_conteiner">
+                <div class="content_text">
+                    <h3>Не проста ўдзельнікі вандровак, а СЯБРЫ!</h3>
+                    <p>Вось яны ўсе злева направа: соцгум блог, беспантовыя піражкі, безруч крош...</p>
+                </div>
+                <div class="content_foto">
+                    <img class="horizontal_img" src="{% static 'home/img/B.png' %}" alt="nasta, milvari i petya">
+                    <img class="horizontal_img" src="{% static 'home/img/B.png' %}" alt="zhuha i lesha">
+                    <img class="horizontal_img" src="{% static 'home/img/B.png' %}" alt="angelina">
+                    <img class="horizontal_img" src="{% static 'home/img/B.png' %}" alt="anya link">
+                    <img class="vertical_foto" src="{% static 'home/img/B.png' %}" alt="zenya">
+                    <img class="vertical_foto" src="{% static 'home/img/B.png' %}" alt="egor i vitya">
+                    <img class="vertical_foto" src="{% static 'home/img/B.png' %}" alt="anya zaec">
+                    <img class="vertical_foto" src="{% static 'home/img/B.png' %}" alt="veronika">
+                    <img class="vertical_foto" src="{% static 'home/img/B.png' %}" alt="lesha">
+                    <img class="square_foto" src="{% static 'home/img/B.png' %}" alt="anna">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+{% endblock %}

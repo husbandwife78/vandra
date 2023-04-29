@@ -7,7 +7,7 @@
 {% block content %}
 
 <head>
-    <link rel="stylesheet" href="{% static 'home/css/second_style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'home/css/second_style1.css' %}"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
      crossorigin=""/>
@@ -85,36 +85,39 @@
 
                     {% for article in post.articles.all %}
 
-                    <div class="{{article.articleRatio}}">
+                        <div class="{{article.articleRatio}}">
 
-                        <div class="trip_block-text">
-                            <p>{{ article.text_block }}</p>
+                            {% if forloop.counter|divisibleby:2 %}
+                                <div class="trip_block-text">
+                                    <p>{{ article.text_block }}</p>
+                                </div>
+                                <img src="{{article.image.url}}" alt="vitebsk">
+                            {% else %}
+                                <img src="{{article.image.url}}" alt="vitebsk">
+                                <div class="trip_block-text">
+                                    <p>{{ article.text_block }}</p>
+                                </div>
+                            {% endif %}
+
                         </div>
-                        <img src="{{article.image.url}}" alt="vitebsk">
-                    </div>
-                    <div class="line_post">
-                        <img src="{% static 'home/img/line_post.png' %}" alt="line">
-                    </div>
 
-
+                        <div class="line_post">
+                            <img src="{% static 'home/img/line_post.png' %}" alt="line">
+                        </div>
 
                     {% endfor %}
 
                 </div>
             </div>
         </div>
-
     </div>
 
 {{ post.postLatitude|json_script:"zoomLat" }}
 {{ post.postLongitude|json_script:"zoomLong" }}
-<!--{{ post.slug|json_script:"postSlug"}}-->
-
 {{ post_points|json_script:"post_points_json" }}
 
 
-
-<script src="{% static 'home/js/second_page_js1.js' %}"></script>
+<script src="{% static 'home/js/second_page.js' %}"></script>
 
 </body>
 
