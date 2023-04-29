@@ -4,13 +4,28 @@
 
 {% block content %}
 
+
+
 <head>
-    <link rel="stylesheet" href="{% static 'home/css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'home/css/style1.css' %}"/>
     <title>Сябры</title>
 </head>
+
 <body>
 
     <div class="wrapper">
+        <nav class="menu">
+            <ul class="menu_list">
+                <li>
+                    <a href="{% url 'home' %}"> &#9776
+                        <ul class="menu_topic">
+                            <li><a href=""> дадому </a></li>
+                        </ul>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
         <div class="content_top">
             <div class="content_top_conteiner">
                 <div class="content_top_body">
@@ -29,20 +44,19 @@
                     <p>Вось яны ўсе злева направа: соцгум блог, беспантовыя піражкі, безруч крош...</p>
                 </div>
                 <div class="content_foto">
-                    <img class="horizontal_img" src="{% static 'home/img/B.png' %}" alt="nasta, milvari i petya">
-                    <img class="horizontal_img" src="{% static 'home/img/B.png' %}" alt="zhuha i lesha">
-                    <img class="horizontal_img" src="{% static 'home/img/B.png' %}" alt="angelina">
-                    <img class="horizontal_img" src="{% static 'home/img/B.png' %}" alt="anya link">
-                    <img class="vertical_foto" src="{% static 'home/img/B.png' %}" alt="zenya">
-                    <img class="vertical_foto" src="{% static 'home/img/B.png' %}" alt="egor i vitya">
-                    <img class="vertical_foto" src="{% static 'home/img/B.png' %}" alt="anya zaec">
-                    <img class="vertical_foto" src="{% static 'home/img/B.png' %}" alt="veronika">
-                    <img class="vertical_foto" src="{% static 'home/img/B.png' %}" alt="lesha">
-                    <img class="square_foto" src="{% static 'home/img/B.png' %}" alt="anna">
+                    <img class="horizontal_img" src="{% static 'home/img/syabr_main.png' %}" alt="nasta, milvari i petya">
+                    <img class="horizontal_img" src="{% static 'home/img/syabr_zhuha_markushevski.png' %}" alt="zhuha i lesha">
+                    <img class="horizontal_img" src="{% static 'home/img/syabr_lina.png' %}" alt="angelina">
+                    <img class="horizontal_img" src="{% static 'home/img/syabr_link.png' %}" alt="anya link">
+                    <img class="vertical_foto" src="{% static 'home/img/syabr_zhenya.png' %}" alt="zenya">
+                    <img class="vertical_foto" src="{% static 'home/img/syabr_egor_vitya.png' %}" alt="egor i vitya">
+                    <img class="vertical_foto" src="{% static 'home/img/syabr_zaec.png' %}" alt="anya zaec">
+                    <img class="vertical_foto" src="{% static 'home/img/syabr_veronika.png' %}" alt="veronika">
+                    <img class="vertical_foto" src="{% static 'home/img/syabr_sych.png' %}" alt="lesha">
+                    <img class="square_foto" src="{% static 'home/img/syabr_anna.png' %}" alt="anna">
                 </div>
             </div>
         </div>
-    </div>
 
 </body>
 

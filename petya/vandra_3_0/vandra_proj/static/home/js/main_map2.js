@@ -10,7 +10,7 @@ let post_markers = JSON.parse(document.getElementById('post_coordinates_json').t
 post_markers.forEach(post_marker => {
     var marker = L.marker([post_marker.postLatitude, post_marker.postLongitude]).addTo(map)
 
-    marker.bindPopup("<b>Hello world!</b><br>I am a popup.")
+    marker.bindPopup("<b style='font-family: Cursive'>" + post_marker.slug.toUpperCase() + "</b>")
 })
 
 //console.log(document.location.href = '../')

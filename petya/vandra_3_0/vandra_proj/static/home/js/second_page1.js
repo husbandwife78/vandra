@@ -11,7 +11,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 let post_points = JSON.parse(document.getElementById('post_points_json').textContent)
 
 post_points.forEach(point => {
-    L.marker([point.latitude, point.longitude]).addTo(map)
+    let marker = L.marker([point.latitude, point.longitude]).addTo(map)
+    marker.bindPopup("<b style='font-family: Cursive'>" + point.name.toUpperCase() + "</b>")
 })
 
 map.setView([zoomLatitude, zoomLongitude], 11);

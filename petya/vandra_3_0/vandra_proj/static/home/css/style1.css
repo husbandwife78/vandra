@@ -23,6 +23,46 @@
 }
 
 
+/*---------- MENU--------- */
+.menu{
+    position: absolute;
+    z-index: 3;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.menu_list {
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #353434;
+
+}
+.menu_list > li > a{
+    font-size: 45px;
+    color: inherit;
+}
+.menu_topic{
+    position: absolute;
+    left: 45px;
+    top: 5px;
+    display: none;
+}
+.menu_topic  li {
+    padding: 7px;
+    background: #353434e3;;
+    color: #ffffff;
+}
+.menu_topic > li > a{
+    display: block;
+    font-size: 25px;
+    color: inherit;
+
+}
+.menu_list > li:hover .menu_topic{
+    z-index: 3;
+    display: block;
+}
+
 /*---------- CONTENT_TOP--------- */
 
 .content_top{
@@ -112,7 +152,7 @@
         width: 577px;
     }
     .content_conteiner .content_body .content_all_posts .content_post.small-width .post_text{
-        margin-top: -20px; 
+        margin-top: -20px;
     }
     .content_top .content_top_conteiner .content_top_body h2{
         font-size: 80px;
@@ -158,21 +198,21 @@
 
     }
     .content_conteiner .content_body .content_all_posts .content_post.small-width .post_text{
-            margin-top: -55px; 
-    } 
+            margin-top: -55px;
+    }
     .content_top .content_top_conteiner .content_top_body h2{
         font-size: 70px;
     }
     .content_conteiner .content_body .content_all_posts .content_post.medium-width .post_text {
         margin-top: -55px;
         width: 80%;
-    }  
+    }
     .content_conteiner .content_body .content_all_posts .content_post.medium-width .post_text .post_title {
         font-size: 22px;
         padding-top: 17px;
     }
 
-        
+
 }
 @media  (max-width: 930px){
     .content_top .content_top_conteiner .content_top_body h2{
@@ -199,7 +239,7 @@
 .content_conteiner .content_body  .content_all_posts .content_post .post_text {
     background: #fff;
     border: 1px solid #000000;
-    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.75); 
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.75);
     position: relative;
     margin: 0 auto;
     padding: 0 15px 29px;
@@ -246,7 +286,6 @@
     height: 400px;
     width: 100%;
 }
-
 
 /* ------ !FOR FRIENDS_PAGE! -------- */
 .content_text{
