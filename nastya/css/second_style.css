@@ -206,6 +206,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    height: 100%;
 }
 .trip_block:last-of-type{
     padding-bottom: 60px;
