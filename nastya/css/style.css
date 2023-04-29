@@ -48,7 +48,8 @@
     display: none;
 }
 .menu_topic  li {
-    padding: 5px;
+    padding: 7px;
+    background: #353434e3;;
     color: #ffffff;
 }
 .menu_topic > li > a{
@@ -58,7 +59,6 @@
     
 }
 .menu_list > li:hover .menu_topic{
-    background: #353434;;
     z-index: 3;
     display: block;
 }
