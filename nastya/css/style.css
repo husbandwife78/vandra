@@ -23,6 +23,46 @@
 }
 
 
+/*---------- MENU--------- */
+.menu{
+    position: absolute;
+    z-index: 3;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.menu_list {
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #353434;
+    
+}
+.menu_list > li > a{
+    font-size: 45px;
+    color: inherit;  
+}
+.menu_topic{
+    position: absolute;
+    left: 45px;
+    top: 5px;
+    display: none;
+}
+.menu_topic  li {
+    padding: 5px;
+    color: #ffffff;
+}
+.menu_topic > li > a{
+    display: block;
+    font-size: 25px;
+    color: inherit; 
+    
+}
+.menu_list > li:hover .menu_topic{
+    background: #353434;;
+    z-index: 3;
+    display: block;
+}
+
 /*---------- CONTENT_TOP--------- */
 
 .content_top{

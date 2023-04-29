@@ -187,10 +187,7 @@
     object-fit: cover;
 }
 .about_trip-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: block;
 }
 .line_post {
     display: flex;
@@ -212,6 +209,7 @@
     padding-bottom: 60px;
 }
 .horizontal_foto_block img{
+    height: fit-content;
     width: 50%;
     filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
 }
@@ -219,6 +217,7 @@
     width: 45%;
 }
 .vertical_foto_block img{
+    height: fit-content;
     width: 30%;
     filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
 }
