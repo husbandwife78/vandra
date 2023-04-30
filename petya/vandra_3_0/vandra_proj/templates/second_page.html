@@ -8,7 +8,7 @@
 
 <head>
 
-    <link rel="stylesheet" href="{% static 'home/css/second_style1.css' %}"/>
+    <link rel="stylesheet" href="{% static 'home/css/second_style3.css' %}"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
      crossorigin=""/>
@@ -21,14 +21,19 @@
 
 <body>
     <div class="wrapper">
-        <header class="header">
-            <div class="header_conteiner">
-                <nav>
-                    <li><a href="{% url 'home' %}">ДАДОМУ</a></li>
-                    <li><a href="{% url 'friends' %}">СЯБРЫ</a></li>
-                </nav>
-            </div>
-        </header>
+
+        <nav class="menu">
+            <ul class="menu_list">
+                <li>
+                    <a href=""> &#9776
+                        <ul class="menu_topic">
+                            <li><a href="{% url 'home' %}"> дадому </a></li>
+                            <li><a href="{% url 'friends' %}"> сябры </a></li>
+                        </ul>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
         <div class="content_top">
             <div class="content_top_conteiner">
@@ -88,15 +93,27 @@
                         <div class="{{article.articleRatio}}">
 
                             {% if forloop.counter|divisibleby:2 %}
+
                                 <div class="trip_block-text">
                                     <p>{{ article.text_block }}</p>
                                 </div>
-                                <img src="{{article.image.url}}" alt="vitebsk">
+
+                                <div class="img_and_text">
+                                    <img src="{{article.image.url}}" alt="vitebsk">
+                                    <p>а тя тя тя якая прыгажуня</p>
+                                </div>
+
                             {% else %}
-                                <img src="{{article.image.url}}" alt="vitebsk">
+
+                                <div class="img_and_text">
+                                    <img src="{{article.image.url}}" alt="vitebsk">
+                                    <p>а тя тя тя якая прыгажуня</p>
+                                </div>
+
                                 <div class="trip_block-text">
                                     <p>{{ article.text_block }}</p>
                                 </div>
+
                             {% endif %}
 
                         </div>
@@ -117,7 +134,7 @@
 {{ post_points|json_script:"post_points_json" }}
 
 
-<script src="{% static 'home/js/second_page1.js' %}"></script>
+<script src="{% static 'home/js/second_page.js' %}"></script>
 
 </body>
 
