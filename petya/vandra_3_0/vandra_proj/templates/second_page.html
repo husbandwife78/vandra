@@ -96,22 +96,24 @@
 
                                 <div class="trip_block-text">
                                     <p>{{ article.text_block }}</p>
+                                    <p class="author">{{ article.author }}</p>
                                 </div>
 
                                 <div class="img_and_text">
                                     <img src="{{article.image.url}}" alt="vitebsk">
-                                    <p>а тя тя тя якая прыгажуня</p>
+                                    <p>{{ article.title }}</p>
                                 </div>
 
                             {% else %}
 
                                 <div class="img_and_text">
                                     <img src="{{article.image.url}}" alt="vitebsk">
-                                    <p>а тя тя тя якая прыгажуня</p>
+                                    <p>{{ article.title }}</p>
                                 </div>
 
                                 <div class="trip_block-text">
                                     <p>{{ article.text_block }}</p>
+                                    <p class="author">{{ article.author }}</p>
                                 </div>
 
                             {% endif %}

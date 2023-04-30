@@ -62,6 +62,7 @@ class PostArticle(models.Model):
 
     title = models.CharField(max_length=70)
     text_block = models.TextField()
+    author = models.CharField(null=True, blank=True, default='')
     image = models.ImageField(upload_to='home/article_images/', null=True, blank=True)
     post_name = models.ForeignKey(Post,
                                   on_delete=models.SET_NULL,
