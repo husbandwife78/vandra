@@ -14,6 +14,10 @@ class Traveler(models.Model):
     def __str__(self):
         return self.first_name
 
+    class Meta:
+        verbose_name = 'Cябр'
+        verbose_name_plural = 'Сябры'
+
 
 class Post(models.Model):
     POST_SIZE = (
@@ -40,6 +44,9 @@ class Post(models.Model):
     class Meta:
         ordering = ['-updated']
 
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Пасты'
+
     def __str__(self):
         return str(self.title)
 
@@ -55,12 +62,8 @@ class PostArticle(models.Model):
         ("trip_block vertical_foto_block", 'Vertical'),
     )
 
-    # IMAGE_SIDE = (
-    #     ('Left', 'Left'),
-    #     ('Right', 'Right'),
-    # )
 
-    title = models.CharField(max_length=70)
+    title = models.CharField(max_length=70, null=True, blank=True, default='')
     text_block = models.TextField()
     author = models.CharField(null=True, blank=True, default='')
     image = models.ImageField(upload_to='home/article_images/', null=True, blank=True)
@@ -71,10 +74,12 @@ class PostArticle(models.Model):
 
     articleRatio = models.CharField(choices=ARTICLE_RATIO, default='Horizontal', null=True, blank=True)
 
-    # imageSide = models.CharField(choices=IMAGE_SIDE, default='Left', null=True, blank=True)
-
     def __str__(self):
         return f'{str(self.title)} | {str(self.post_name)}'
+
+    class Meta:
+        verbose_name = 'Артыкул'
+        verbose_name_plural = 'Артыклы'
 
 
 class PostPoint(models.Model):
@@ -89,3 +94,7 @@ class PostPoint(models.Model):
 
     def __str__(self):
         return f'{str(self.name)} | {str(self.post_name)}'
+
+    class Meta:
+        verbose_name = 'Наведанае месца'
+        verbose_name_plural = 'Наведанае месцы'
