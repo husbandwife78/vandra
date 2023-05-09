@@ -3,8 +3,10 @@
     background: #F5E9D4;
     display: flex;
 	flex-direction: column;
+    min-width: 0;
+    overflow-x: hidden;
 }
-.header_conteiner, .members_conteiner, .content_top_conteiner, .map_conteiner, .about_trip-conteiner, .foto_conteiner {
+.header_conteiner, .members_conteiner, .content_top_conteiner, .map_conteiner, .about_trip-conteiner, .foto_conteiner, .swiper-conteiner {
     max-width: 1220px;
     margin: 0 auto;
 }
@@ -356,6 +358,62 @@
         overflow: auto;
     }
 }
+
+
+/* ----- SWIPER ------- */
+.swiper-slide__img{
+    text-align: center;
+}
+.swiper-slide__img img{
+    height: 600px;
+    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
+}
+.swiper_nav{
+    position: relative;
+    top: -300px;
+}
+.swiper-button-prev::after, .swiper-button-next::after{
+    color: #353434;
+    font-size: 60px;
+}
+.swiper--pagination{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.swiper-pagination-bullet{
+    width: 10px;
+    height: 10px;
+    line-height: 20px;
+    font-size: 14px;
+    background-color: #353434;
+}
+@media (max-width: 1230px){
+    .swiper-conteiner{
+        display: block;
+        width: 90%;
+    }
+    .swiper-slide__img img{
+        height: 500px;
+    }
+    .swiper_nav{
+        top: -250px;
+    }
+}
+@media (max-width: 950px){
+    .swiper-conteiner{
+        display: block;
+        width: 90%;
+    }
+    .swiper-slide__img img{
+        height: 400px;
+    }
+    .swiper_nav{
+        top: -200px;
+    }
+}
+
+
 
 /* ----- FOOTER ------- */
 
